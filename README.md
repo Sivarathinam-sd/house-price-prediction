@@ -1,6 +1,8 @@
 # House Price Prediction
 Predicts house prices using machine learning by analysing property features, historical data, location to provide accurate real-estate values estimates.
 
+<img scr="hero.png" />
+
 ## Steps to Setup Github and Project
 
 1. Open CMD and enter `python --version`, If python is not installed please visit <a>https://www.python.org/downloads/</a> <br>run the executable and follow the installation wizard.
