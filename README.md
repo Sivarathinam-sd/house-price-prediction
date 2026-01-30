@@ -7,4 +7,5 @@ Predicts house prices using machine learning by analysing property features, his
 
 1. Open CMD and enter `python --version`, If python is not installed please visit <a>https://www.python.org/downloads/</a> <br>run the executable and follow the installation wizard.
 2. Check whether git is install in the system `git --version`, visit <a>https://git-scm.com</a> to download and install git, alternatively git can also be installed using homebrew for mac users.
-3. It is time to get your hands on the project by bringing it to your local repository.<br> `git clone https://github.com/Sivarathinam-sd/house-price-prediction.git`
+3. Install uv using the pip pakage manager `pip install uv` 
+4. It is time to get your hands on the project by bringing it to your local repository.<br> `git clone https://github.com/Sivarathinam-sd/house-price-prediction.git`
