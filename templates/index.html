@@ -1,71 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Poppins:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <title>RentWise</title>
+
     <style>
-        *{
+        * {
             margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* NAVBAR */
+        .nav {
+            height: 70px;
+            background-color: #E5BA41;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav ul {
+            margin-right: 40px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav ul li {
+            list-style: none;
+            font-size: 20px;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* MAIN SECTION */
+        .main {
+            position: relative;
+            height: 692px;
+            overflow: hidden;
+        }
+
+        /* BANNER */
+        .banner {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            margin-top: -65px;
+            object-fit: cover;
+            filter: blur(3px);
+        }
+
+        /* VIGNETTE */
+        .banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.7));
+            z-index: 2;
+        }
+
+        /* TEXT BOX */
+        .text-box {
+            position: relative;
+            z-index: 3;
+            width: 700px;
+            padding: 140px 0 0 53px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .text-box h1 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 128px;
+        }
+
+        .text-box p {
+            font-size: 42px;
+            margin-bottom: 30px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* SELECT + BUTTON */
+        .select-wrapper {
+            display: flex;
+            width: 640px;
+        }
+
+        .select-wrapper select {
+            flex: 1;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            background-color: rgba(249, 249, 249, 0.8);
+            border-right: none;
+            border-radius: 8px 0 0 8px;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .select-wrapper input[type="submit"] {
+            padding: 0 22px;
+            font-size: 16px;
+            border: 1px solid #E5BA41;
+            background: #E5BA41;
+            color: #fff;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .select-wrapper input[type="submit"]:hover {
+            background: #FACE68;
+        }
+
+        .select-wrapper select:focus,
+        .select-wrapper input:focus {
+            outline: none;
+        }
+
+        .what-we-do {
+            background-color: #f9f9f9;
+            padding: 80px 60px;
+        }
+
+        .what-container {
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .what-we-do h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 56px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .what-we-do .subtitle {
+            font-size: 22px;
+            color: #555;
+            max-width: 850px;
+            margin: 0 auto 70px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 40px 30px;
+            width: 320px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-card.highlight {
+            background: #E5BA41;
+            color: #fff;
+        }
+
+        .feature-card.highlight h3,
+        .feature-card.highlight p {
+            color: #fff;
         }
     </style>
 </head>
+
 <body>
-    <div style="height: 90vh; display: flex; justify-content: center; align-items: center;"  >
-    <center>
-    <h1 style="text-align:center; align-items:center; color:violet" >Welcome to your Dream Home 🏠</h1>
-    </center>
-    
+
+    <!-- NAV -->
+    <div class="nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </div>
-    <img src="../static/House.png" alt="image" style="height:100vh; width: 100%; position:absolute; top: 0; z-index: -1;"> 
-    
-    <form action="">
-        <select name="Choose" id="">
-            <option value="">Select a City</option>
-            <option value="">Delhi</option>
-            <option value="">Mumbai</option> 
-            <option value="">Pune</option>
-            <input type="submit"></input>
-        </select>
-    </form>
 
-    <style>
-         
-         div>a{
-            color: white;
-            text-decoration: none;
-            margin: 30px;
-            font-size: 20px;
-            background-color: orange;
-            padding: 10px;
-            border-radius: 20px;
-            
-         }
-         a:hover{
-            background-color: aqua;
-            color: blue;
-            box-shadow: 0px 0px 10px white;
-         }
-         h1::first-letter{
-                color: blue;
-                font-size: 40px;
-         }
-         #one{
-            float: left;
-         }
-         #two{
-            float:right;
-         }
-    </style>
-    
+    <!-- HERO -->
+    <section class="main">
 
+        <div class="banner">
+            <img src="../static/website_banner.png" alt="RentWise Banner">
+        </div>
 
-    <div align="center" >
-        <a href=" ">About us</a>
-        <a href=" ">GET STARTED</a>
-        <a href=" ">Contacts</a>
-        <a href=" ">Enquiry</a>
-    </div>
+        <div class="text-box">
+            <h1><b>R</b>ent<b>W</b>ise</h1>
+            <p>Welcomes you to your dream home.</p>
+
+            <form>
+                <div class="select-wrapper">
+                    <select name="city" id="city">
+                        <option value="">Select your city</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="pune">Pune</option>
+                    </select>
+                    <input type="submit" value="Go">
+                </div>
+            </form>
+        </div>
+
+    </section>
+    <section class="what-we-do">
+        <div class="what-container">
+            <h2>What We Do</h2>
+            <p class="subtitle">
+                We use machine learning models and real rental data to predict house prices with high accuracy.
+            </p>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Smart Price Prediction</h3>
+                    <p>
+                        Our platform analyzes location trends, property features, and historical rent data to deliver
+                        reliable price estimates instantly.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Data-Driven Insights</h3>
+                    <p>
+                        Powered by real rental data and intelligent algorithms—so your decisions are backed by facts,
+                        not assumptions.
+                    </p>
+                </div>
+
+                <div class="feature-card highlight">
+                    <h3>No Guesswork</h3>
+                    <p>
+                        Just smarter insights to help you find the right home at the right price.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
+
 </html>
