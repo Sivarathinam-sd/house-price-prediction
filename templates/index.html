@@ -209,6 +209,120 @@
         .feature-card.highlight p {
             color: #fff;
         }
+        
+        /* FLOATING RESULT MODAL */
+.result-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeInOverlay 0.3s ease-in-out;
+}
+
+.result-popup {
+    background: #ffffff;
+    padding: 60px 50px;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: popupSlide 0.4s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    transition: 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #E5BA41;
+}
+
+.result-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+.price-box {
+    font-size: 48px;
+    font-weight: 600;
+    color: #E5BA41;
+    background: rgba(229, 186, 65, 0.1);
+    padding: 20px 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.result-subtext {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.btn.primary {
+    background: #E5BA41;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: #FACE68;
+}
+
+.btn.secondary {
+    border: 2px solid #E5BA41;
+    color: #E5BA41;
+}
+
+.btn.secondary:hover {
+    background: #E5BA41;
+    color: #fff;
+}
+
+/* Animations */
+@keyframes popupSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
     </style>
 </head>
 
@@ -223,10 +337,34 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </div>
-
+    
     <!-- HERO -->
     <section class="main">
+        {% if prediction %}
+        <div class="result-overlay" id="resultModal">
+            <div class="result-popup">
 
+                <span class="close-btn" onclick="closeResult()">✖</span>
+
+                <h2 class="result-title">🎉 Estimated Monthly Rent</h2>
+
+                <div class="price-box">
+                    ₹ {{ prediction[0] }}
+                </div>
+
+                <p class="result-subtext">
+                    Based on your property details and real rental market trends,
+                    this is the predicted rent for your listing.
+                </p>
+
+                <div class="result-actions">
+                    <a href="/" class="btn secondary">🏠 Home</a>
+                    <a href="javascript:history.back()" class="btn primary">🔄 Predict Again</a>
+                </div>
+
+            </div>
+        </div>
+        {% endif %}
         <div class="banner">
             <img src="../static/website_banner.png" alt="RentWise Banner">
         </div>
@@ -234,11 +372,15 @@
         <div class="text-box">
             <h1><b>R</b>ent<b>W</b>ise</h1>
             <p>Welcomes you to your dream home.</p>
+            {% if prediction %}
 
-            <form>
+            
+
+            {% endif %}
+            <form action="{{ url_for('get_city') }}" method="POST" >
                 <div class="select-wrapper">
                     <select name="city" id="city">
-                        <option value="">Select your city</option>
+                        <option value="">-- Select your city --</option>
                         <option value="delhi">Delhi</option>
                         <option value="mumbai">Mumbai</option>
                         <option value="pune">Pune</option>
@@ -249,6 +391,9 @@
         </div>
 
     </section>
+
+    
+
     <section class="what-we-do">
         <div class="what-container">
             <h2>What We Do</h2>
@@ -284,5 +429,10 @@
     </section>
 
 </body>
-
+<script>
+    function closeResult() {
+        document.getElementById("resultModal").style.display = "none";
+    }
+</script>
 </html>
+

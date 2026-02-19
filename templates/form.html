@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts (Same as Homepage) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <title>RentWise | House Listing</title>
+
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f9f9f9;
+        }
+
+        /* NAVBAR (Same as Homepage) */
+        .nav {
+            height: 70px;
+            background-color: #E5BA41;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav ul {
+            margin-right: 40px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav ul li {
+            list-style: none;
+            font-size: 18px;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* FORM SECTION */
+        .form-section {
+            padding: 60px 20px;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 28px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        select,
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background-color: rgba(249, 249, 249, 0.8);
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: #E5BA41;
+        }
+
+        /* Radio Buttons */
+        .radio-group {
+            margin-top: 10px;
+        }
+
+        .radio-group label {
+            font-weight: 400;
+            margin-right: 20px;
+        }
+
+        /* Submit Button */
+        button {
+            margin-top: 35px;
+            padding: 14px;
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            background: #E5BA41;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #FACE68;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <div class="nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <section class="form-section">
+        <div class="form-container">
+             <form action="{{ url_for('predict') }}" method="POST" >
+            
+            <h2>🏠 Property Basic Details</h2>
+            
+            <label for="numRooms">Number of Rooms</label>
+            <select name="numRooms" id="numRooms">
+                <option value="">--Select Number of Rooms--</option>
+                <option value="0">None</option>
+                {% for i in range(1,13) %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+
+            <label for="numBathrooms">Number of Bathrooms</label>
+            <select name="numBathrooms" id="numBathrooms">
+                <option value="">--Select Number of Bathrooms--</option>
+                <option value="0">None</option>
+                {% for i in range(1,13) %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+
+            <label for="numBalconies">Number of Balconies</label>
+            <select name="numBalconies" id="numBalconies">
+                <option value="">--Select Number of Balconies--</option>
+                <option value="0">None</option>
+                {% for i in range(1,13) %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+            <label for="houseSize">House Size (sq)</label>
+            <input type="number" name="houseSize" id="houseSize" placeholder="Enter expected House Size" >
+
+            <label for="securityDeposit">Security Deposit</label>
+            <input type="number" name="securityDeposit" id="securityDeposit" placeholder="Enter expected Security Deposit" >
+
+            <h2>📍 Location Details</h2>
+
+            <label for="location">Location in {{city}}</label>
+            <select name="location" id="location">
+                <option value="">--Select Location--</option>
+                {% for place in locations %}
+                <option value="{{ place }}">{{ place }}</option>
+                {% endfor %}
+            </select>
+
+            <h2>🏢 Configuration</h2>
+
+            <label for="configuration">House Configuration</label>
+            <select name="configuration" id="configuration">
+                <option value="">--Select House Configuration--</option>
+                <option value="0">BHK</option>
+                <option value="1">RK</option>
+            </select>
+
+            <h2>🏡 House Type</h2>
+
+            <label for="houseType">House Type</label>
+            <select name="houseType" id="houseType">
+                <option value="">--Select House Type--</option>
+                <option value="0">Apartment</option>
+                <option value="1">Independent Floor</option>
+                <option value="2">Independent House</option>
+                <option value="3">Studio Apartment</option>
+                <option value="4">Villa</option>
+                <option value="5">Pent House</option>
+            </select>
+
+            <h2>💰 Negotiation</h2>
+
+                 <table style="width: 20%;" >
+            <tr>
+                <td><input type="radio" id="neg_yes" name="negotiation" value="0" required></td>
+                <td><label for="neg_yes">Yes</label></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" id="neg_no" name="negotiation" value="1"></td>
+                <td><label for="neg_no">No</label></td>
+            </tr>
+        </table>
+
+            <h2>🛋 Furnishing</h2>
+
+            <select name="furnishing" id="furnishing">
+                <option value="">--Select Furnishment Type--</option>
+                <option value="0">Furnished</option>
+                <option value="1">Semi-Furnished</option>
+                <option value="2">Unfurnished</option>
+            </select>
+            <input type="hidden" name="city" value="{{city}}" >
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
