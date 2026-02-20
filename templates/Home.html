@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RentWise | Smart Rental Prediction</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #FFF8E1;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #E3B74A;
+            padding: 18px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #3b2f00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(
+                rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5)
+            ),
+            url("home.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            color: #fff;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            background-color: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: #E3B74A;
+            border: none;
+            padding: 0 30px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background-color: #C9A236;
+        }
+
+        /* Sections */
+        .section {
+            padding: 90px 80px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            color: #6b5200;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 35px;
+            border-radius: 12px;
+            flex: 1;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            border-top: 5px solid #E3B74A;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #6b5200;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Call to Action */
+        .cta {
+            background-color: #E3B74A;
+            padding: 80px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta button {
+            margin-top: 25px;
+            padding: 14px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            background-color: #fff;
+            color: #6b5200;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cta button:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3b2f00;
+            padding: 25px;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .cards {
+                flex-direction: column;
+            }
+
+            .navbar, .hero, .section {
+                padding: 40px 30px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">RentWise</div>
+        <div class="nav-links">
+            <a href="/Home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>RentWise</h1>
+            <p>
+                Smart rental price predictions to help you find
+                the perfect home at the right price.
+            </p>
+
+            <div class="search-box">
+                <input type="text" placeholder="Enter your city">
+                <button>Go</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Preview -->
+    <div class="section">
+        <h2>Why RentWise?</h2>
+        <p>
+            RentWise helps you understand real rental prices using
+            smart prediction models. No guesswork, no confusion —
+            just clear and reliable rent estimates.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Accurate Pricing</h3>
+                <p>
+                    Get realistic rental estimates based on actual
+                    market trends and property data.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Fast & Simple</h3>
+                <p>
+                    Enter a few details and get rent predictions
+                    instantly without complex steps.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Trusted Insights</h3>
+                <p>
+                    Designed to help tenants and owners make confident
+                    rental decisions.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h2>Ready to Find the Right Rent?</h2>
+        <p>Start your rental journey with RentWise today</p>
+        <button>Check Rent Now</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 RentWise. All rights reserved.
+    </footer>
+
+</body>
+</html>

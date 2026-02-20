@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | RentWise</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #FFF8E1;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #E3B74A;
+            padding: 18px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #3b2f00;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(
+                rgba(0,0,0,0.45),
+                rgba(0,0,0,0.45)
+            ),
+            url("house.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 120px 80px;
+            color: #fff;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 20px;
+            max-width: 600px;
+        }
+
+        /* Content */
+        .container {
+            padding: 70px 80px;
+            max-width: 1100px;
+        }
+
+        .container h2 {
+            font-size: 34px;
+            color: #6b5200;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        /* Cards */
+        .features {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            flex: 1;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            border-top: 5px solid #E3B74A;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #6b5200;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .features {
+                flex-direction: column;
+            }
+
+            .navbar, .header, .container {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">RentWise</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <!-- <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a> -->
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="header">
+        <h1>About RentWise</h1>
+        <p>
+            Smart rental price predictions to help you find the right home
+            at the right price.
+        </p>
+    </div>
+
+    <!-- About Content -->
+    <div class="container">
+        <h2>What We Do</h2>
+
+        <p>
+            RentWise helps users estimate house rental prices quickly and easily.
+            By using real rental data and smart prediction models, we make rental
+            pricing transparent and simple for everyone.
+        </p>
+
+        <p>
+            Whether you're a tenant looking for a fair deal or a property owner
+            setting rent, RentWise gives you a reliable price suggestion based on
+            location, size, rooms, and amenities.
+        </p>
+
+        <div class="features">
+            <div class="card">
+                <h3>Market Insights</h3>
+                <p>
+                    Understand current rental trends based on real housing data.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Smart Estimates</h3>
+                <p>
+                    Get accurate rent predictions in seconds using intelligent models.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Confident Decisions</h3>
+                <p>
+                    Make rental decisions with clarity and confidence.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
